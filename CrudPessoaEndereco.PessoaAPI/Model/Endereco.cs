@@ -5,8 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace CadastroPessoaEndereco.PessoaAPI.Model
 {
     [Table("Endereco")]
-    public class Endereco : BaseEntity
+    public class Endereco 
     {
+        [Column("EnderecoId")]
+        [Key]
+        [Required]
+        public Guid EnderecoId { get; private set; }
 
         [Column("Cep")]
         [StringLength(8)]
@@ -32,17 +36,16 @@ namespace CadastroPessoaEndereco.PessoaAPI.Model
         [StringLength(80)]
         public string? Bairro { get; private set; }
 
-        [ForeignKey("Pessoa")]
-        public Guid? PessoaId { get; private set; }
-        public virtual Pessoa? Pessoa { get; private set; }
+        [ForeignKey("EnderecoId")]
+        public virtual IEnumerable<Pessoa> Pessoa { get; private set; }
 
         public Endereco()
         {
         }
 
-        public Endereco(string? cep, string? logradouro, string? numero, string? estado, string? cidade, string? bairro)
+        public Endereco(Guid enderecoId, string? cep, string? logradouro, string? numero, string? estado, string? cidade, string? bairro)
         {
-            Id = Guid.NewGuid();
+            EnderecoId = enderecoId;
             Cep = cep;
             Logradouro = logradouro;
             Numero = numero;

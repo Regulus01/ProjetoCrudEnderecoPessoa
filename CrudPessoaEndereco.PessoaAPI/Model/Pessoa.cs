@@ -7,8 +7,6 @@ namespace CadastroPessoaEndereco.PessoaAPI.Model
     [Table("Pessoa")]
     public class Pessoa : BaseEntity
     {
-        private object value;
-
         [Column("Nome")]
         [Required]
         [StringLength(80)]
@@ -18,19 +16,20 @@ namespace CadastroPessoaEndereco.PessoaAPI.Model
         [EmailAddress]
         public string? Email { get; private set; }
 
-        [Column("Endereco")]
+        [Column("EnderecoId")]
+        public Guid EnderecoId { get; private set; }
         public virtual Endereco? Endereco { get; private set; }
 
         public Pessoa()
         {
         }
 
-        public Pessoa(string nome, string? email, Endereco? endereco)
+        public Pessoa(string nome, string? email, Guid enderecoId)
         {
             Id = Guid.NewGuid();
             Nome = nome;
             Email = email;
-            Endereco = endereco;
+            EnderecoId = enderecoId;
         }
 
     }
