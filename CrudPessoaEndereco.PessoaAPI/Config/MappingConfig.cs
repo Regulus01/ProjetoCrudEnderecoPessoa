@@ -11,6 +11,7 @@ namespace CrudPessoaEndereco.PessoaAPI.Config
             var mappingConfig = new MapperConfiguration(config =>
             {
                 config.CreateMap<Pessoa, PessoaVO>().ReverseMap();
+                config.CreateMap<Pessoa, CreatePessoaVO>().ReverseMap();
                 config.CreateMap<Endereco, EnderecoVO>().ReverseMap();
 
             });

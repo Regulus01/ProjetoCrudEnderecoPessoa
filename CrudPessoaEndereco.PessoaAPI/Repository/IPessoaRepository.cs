@@ -4,9 +4,9 @@ namespace CrudPessoaEndereco.PessoaAPI.Repository
 {
     public interface IPessoaRepository
     {
-        Task<PessoaVO> FindAll();
+        Task<IEnumerable<PessoaVO>> FindAll();
         Task<PessoaVO> FindById(Guid id);
-        Task<PessoaVO> Create(PessoaVO vo);
+        Task<CreatePessoaVO> Create(CreatePessoaVO vo);
         Task<PessoaVO> Update(PessoaVO vo);
         Task<PessoaVO> Delete(Guid id);
     }

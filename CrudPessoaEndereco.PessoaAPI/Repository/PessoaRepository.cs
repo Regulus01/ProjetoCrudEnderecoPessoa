@@ -17,7 +17,22 @@ namespace CrudPessoaEndereco.PessoaAPI.Repository
             _mapper = mapper;
         }
 
-        public Task<PessoaVO> Create(PessoaVO vo)
+        public async Task<CreatePessoaVO> Create(CreatePessoaVO vo)
+        {
+            Pessoa pessoa = _mapper.Map<Pessoa>(vo);
+            _context.Pessoas.Add(pessoa);
+
+            if (pessoa.Endereco != null)
+            {
+                _context.Enderecos.Add(pessoa.Endereco);
+            }
+
+            await _context.SaveChangesAsync();
+
+            return _mapper.Map<CreatePessoaVO>(pessoa);
+        }
+
+        public Task<PessoaVO> Update(PessoaVO vo)
         {
             throw new NotImplementedException();
         }
@@ -27,9 +42,11 @@ namespace CrudPessoaEndereco.PessoaAPI.Repository
             throw new NotImplementedException();
         }
 
-        public Task<PessoaVO> FindAll()
+        public async Task<IEnumerable<PessoaVO>> FindAll()
         {
-            throw new NotImplementedException();
+            List<Pessoa> pessoas = await _context.Pessoas.Include(x => x.Endereco).ToListAsync();
+
+            return _mapper.Map<List<PessoaVO>>(pessoas);
         }
 
         public async Task<PessoaVO> FindById(Guid id)
@@ -42,9 +59,6 @@ namespace CrudPessoaEndereco.PessoaAPI.Repository
             return _mapper.Map<PessoaVO>(pessoa);        
         }
 
-        public Task<PessoaVO> Update(PessoaVO vo)
-        {
-            throw new NotImplementedException();
-        }
+ 
     }
 }
