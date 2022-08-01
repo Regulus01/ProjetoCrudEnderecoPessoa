@@ -120,6 +120,7 @@ G:\My Drive\Projeto com rod\CadastroPessoaEndereco\CrudPessoaEndereco.PessoaAPI\
 G:\My Drive\Projeto com rod\CadastroPessoaEndereco\CrudPessoaEndereco.PessoaAPI\obj\Debug\net6.0\CrudPessoaEndereco.PessoaAPI.pdb
 G:\My Drive\Projeto com rod\CadastroPessoaEndereco\CrudPessoaEndereco.PessoaAPI\obj\Debug\net6.0\CrudPessoaEndereco.PessoaAPI.genruntimeconfig.cache
 G:\My Drive\Projeto com rod\CadastroPessoaEndereco\CrudPessoaEndereco.PessoaAPI\obj\Debug\net6.0\ref\CrudPessoaEndereco.PessoaAPI.dll
+G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaAPI\obj\Debug\net6.0\refint\CrudPessoaEndereco.PessoaAPI.dll
 G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaAPI\bin\Debug\net6.0\appsettings.Development.json
 G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaAPI\bin\Debug\net6.0\appsettings.json
 G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaAPI\bin\Debug\net6.0\CrudPessoaEndereco.PessoaAPI.exe
@@ -177,7 +178,6 @@ G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaA
 G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaAPI\obj\Debug\net6.0\scopedcss\bundle\CrudPessoaEndereco.PessoaAPI.styles.css
 G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaAPI\obj\Debug\net6.0\CrudPessoaEndereco.PessoaAPI.csproj.CopyComplete
 G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaAPI\obj\Debug\net6.0\CrudPessoaEndereco.PessoaAPI.dll
-G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaAPI\obj\Debug\net6.0\refint\CrudPessoaEndereco.PessoaAPI.dll
 G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaAPI\obj\Debug\net6.0\CrudPessoaEndereco.PessoaAPI.pdb
 G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaAPI\obj\Debug\net6.0\CrudPessoaEndereco.PessoaAPI.genruntimeconfig.cache
 G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaAPI\obj\Debug\net6.0\ref\CrudPessoaEndereco.PessoaAPI.dll

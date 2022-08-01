@@ -1,5 +1,4 @@
-﻿using CrudPessoaEndereco.PessoaAPI.Model.Base;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CadastroPessoaEndereco.PessoaAPI.Model
@@ -7,8 +6,8 @@ namespace CadastroPessoaEndereco.PessoaAPI.Model
     [Table("Endereco")]
     public class Endereco 
     {
-        [Column("EnderecoId")]
         [Key]
+        [Column("EnderecoId")]
         [Required]
         public Guid EnderecoId { get; private set; }
 
@@ -36,14 +35,16 @@ namespace CadastroPessoaEndereco.PessoaAPI.Model
         [StringLength(80)]
         public string? Bairro { get; private set; }
 
-        [ForeignKey("EnderecoId")]
-        public virtual IEnumerable<Pessoa> Pessoa { get; private set; }
+        [ForeignKey("Pessoa")]
+        public Guid PessoaId { get; private set; }
+        public virtual Pessoa Pessoa { get; private set; }
 
         public Endereco()
         {
         }
 
-        public Endereco(Guid enderecoId, string? cep, string? logradouro, string? numero, string? estado, string? cidade, string? bairro)
+        public Endereco(Guid enderecoId, string? cep, string? logradouro, string? numero, string? estado,
+            string? cidade, string? bairro, Guid pessoaId)
         {
             EnderecoId = enderecoId;
             Cep = cep;
@@ -52,6 +53,7 @@ namespace CadastroPessoaEndereco.PessoaAPI.Model
             EstadoUf = estado;
             Cidade = cidade;
             Bairro = bairro;
+            PessoaId = pessoaId;
         }
     }
 }

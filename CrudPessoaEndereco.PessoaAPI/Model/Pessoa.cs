@@ -1,12 +1,16 @@
-﻿using CrudPessoaEndereco.PessoaAPI.Model.Base;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CadastroPessoaEndereco.PessoaAPI.Model
 {
     [Table("Pessoa")]
-    public class Pessoa : BaseEntity
+    public class Pessoa 
     {
+        [Key]
+        [Column("PessoaId")]
+        [Required]
+        public Guid PessoaId { get; private set; }
+
         [Column("Nome")]
         [Required]
         [StringLength(80)]
@@ -16,20 +20,23 @@ namespace CadastroPessoaEndereco.PessoaAPI.Model
         [EmailAddress]
         public string? Email { get; private set; }
 
-        [Column("EnderecoId")]
-        public Guid EnderecoId { get; private set; }
+        [Column("Endereco")]
         public virtual Endereco? Endereco { get; private set; }
 
         public Pessoa()
         {
         }
 
-        public Pessoa(string nome, string? email, Guid enderecoId)
+        public Pessoa(Guid id, string nome, string? email)
         {
-            Id = Guid.NewGuid();
+            PessoaId = id;
             Nome = nome;
             Email = email;
-            EnderecoId = enderecoId;
+        }
+
+        public void AdicionaEndereco(Endereco endereco)
+        {
+            Endereco = endereco;
         }
 
     }

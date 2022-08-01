@@ -18,38 +18,41 @@ namespace CrudPessoaEndereco.PessoaAPI.Model.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            Guid idEndereco = Guid.NewGuid();
-            Guid idEndereco2 = Guid.NewGuid();
-          
-            modelBuilder.Entity<Endereco>().HasData(new Endereco(
-                idEndereco, 
-                "49032490", 
-                "av.murilo dantas", 
-                "1155", 
-                "SE", 
-                "Aracaju", 
-                "Farolandia"));
+            Guid idPessoa1 = Guid.NewGuid();
+            Guid idPessoa2 = Guid.NewGuid();
 
             modelBuilder.Entity<Pessoa>().HasData(new Pessoa(
-                "jose",
-                "jose@gmail.com",
-                idEndereco
-                ));
-
-            modelBuilder.Entity<Endereco>().HasData(new Endereco(
-               idEndereco2,
-               "5512460",
-               "av.dantas",
-               "1157",
-               "SE",
-               "Barra",
-               "Conqueiros"));
+               idPessoa1,
+               "jose",
+               "jose@gmail.com"
+               ));
 
             modelBuilder.Entity<Pessoa>().HasData(new Pessoa(
+                idPessoa2,
                 "rodney",
-                "rodney@gmail.com",
-                idEndereco2
+                "rodney@gmail.com"
                 ));
+
+            modelBuilder.Entity<Endereco>().HasData(new Endereco(
+                Guid.NewGuid(),
+                "49032490",
+                "av.murilo dantas",
+                "1155",
+                "SE",
+                "Farolandia",
+                "Farol",
+                idPessoa1));
+
+            modelBuilder.Entity<Endereco>().HasData(new Endereco(
+                Guid.NewGuid(),
+                "5512460",
+                "av.dantas",
+                "1157",
+                "SE",
+                "Barra",
+                "Coqueiros",
+                idPessoa2));
+           
         }
     }
 

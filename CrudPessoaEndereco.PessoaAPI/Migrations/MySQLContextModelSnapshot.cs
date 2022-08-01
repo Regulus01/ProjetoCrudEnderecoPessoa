@@ -56,47 +56,51 @@ namespace CrudPessoaEndereco.PessoaAPI.Migrations
                         .HasColumnType("varchar(80)")
                         .HasColumnName("Numero");
 
+                    b.Property<Guid>("PessoaId")
+                        .HasColumnType("char(36)");
+
                     b.HasKey("EnderecoId");
+
+                    b.HasIndex("PessoaId")
+                        .IsUnique();
 
                     b.ToTable("Endereco");
 
                     b.HasData(
                         new
                         {
-                            EnderecoId = new Guid("04a4da82-44b4-46b1-a007-4494c9f26b36"),
-                            Bairro = "Farolandia",
+                            EnderecoId = new Guid("0020a95c-9b37-4bbe-a017-6d658e3dd0d2"),
+                            Bairro = "Farol",
                             Cep = "49032490",
-                            Cidade = "Aracaju",
+                            Cidade = "Farolandia",
                             EstadoUf = "SE",
                             Logradouro = "av.murilo dantas",
-                            Numero = "1155"
+                            Numero = "1155",
+                            PessoaId = new Guid("e377f741-b75e-4fab-8a51-1af9c01a6a95")
                         },
                         new
                         {
-                            EnderecoId = new Guid("707dfb0d-9b3e-4868-b046-963293356108"),
-                            Bairro = "Conqueiros",
+                            EnderecoId = new Guid("6be645b6-4bb6-4206-a0b8-ad211f25e2da"),
+                            Bairro = "Coqueiros",
                             Cep = "5512460",
                             Cidade = "Barra",
                             EstadoUf = "SE",
                             Logradouro = "av.dantas",
-                            Numero = "1157"
+                            Numero = "1157",
+                            PessoaId = new Guid("26f753a5-6ed9-45b0-95c1-9113148e6e1d")
                         });
                 });
 
             modelBuilder.Entity("CadastroPessoaEndereco.PessoaAPI.Model.Pessoa", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("PessoaId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .HasColumnName("id");
+                        .HasColumnName("PessoaId");
 
                     b.Property<string>("Email")
                         .HasColumnType("longtext")
                         .HasColumnName("Email");
-
-                    b.Property<Guid>("EnderecoId")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("EnderecoId");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -104,43 +108,39 @@ namespace CrudPessoaEndereco.PessoaAPI.Migrations
                         .HasColumnType("varchar(80)")
                         .HasColumnName("Nome");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("EnderecoId");
+                    b.HasKey("PessoaId");
 
                     b.ToTable("Pessoa");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("78673a06-2f37-451d-9524-bdaae5f6e685"),
+                            PessoaId = new Guid("e377f741-b75e-4fab-8a51-1af9c01a6a95"),
                             Email = "jose@gmail.com",
-                            EnderecoId = new Guid("04a4da82-44b4-46b1-a007-4494c9f26b36"),
                             Nome = "jose"
                         },
                         new
                         {
-                            Id = new Guid("3e672a03-8e9f-41ac-bf52-cad17dbd66d8"),
+                            PessoaId = new Guid("26f753a5-6ed9-45b0-95c1-9113148e6e1d"),
                             Email = "rodney@gmail.com",
-                            EnderecoId = new Guid("707dfb0d-9b3e-4868-b046-963293356108"),
                             Nome = "rodney"
                         });
                 });
 
-            modelBuilder.Entity("CadastroPessoaEndereco.PessoaAPI.Model.Pessoa", b =>
+            modelBuilder.Entity("CadastroPessoaEndereco.PessoaAPI.Model.Endereco", b =>
                 {
-                    b.HasOne("CadastroPessoaEndereco.PessoaAPI.Model.Endereco", "Endereco")
-                        .WithMany("Pessoa")
-                        .HasForeignKey("EnderecoId")
+                    b.HasOne("CadastroPessoaEndereco.PessoaAPI.Model.Pessoa", "Pessoa")
+                        .WithOne("Endereco")
+                        .HasForeignKey("CadastroPessoaEndereco.PessoaAPI.Model.Endereco", "PessoaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Endereco");
+                    b.Navigation("Pessoa");
                 });
 
-            modelBuilder.Entity("CadastroPessoaEndereco.PessoaAPI.Model.Endereco", b =>
+            modelBuilder.Entity("CadastroPessoaEndereco.PessoaAPI.Model.Pessoa", b =>
                 {
-                    b.Navigation("Pessoa");
+                    b.Navigation("Endereco");
                 });
 #pragma warning restore 612, 618
         }
