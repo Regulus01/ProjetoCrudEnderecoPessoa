@@ -17,14 +17,14 @@ namespace CrudPessoaEndereco.PessoaAPI.Repository
             _mapper = mapper;
         }
 
-        public async Task<CreatePessoaVO> Create(CreatePessoaVO vo)
+        public async Task<CreatePessoaVO> Create(CreatePessoaVO? vo)
         {
             Pessoa pessoa = _mapper.Map<Pessoa>(vo);
-            _context.Pessoas.Add(pessoa);
+            _context.Pessoas?.Add(pessoa);
 
             if (pessoa.Endereco != null)
             {
-                _context.Enderecos.Add(pessoa.Endereco);
+                _context.Enderecos?.Add(pessoa.Endereco);
             }
 
             await _context.SaveChangesAsync();
@@ -42,21 +42,31 @@ namespace CrudPessoaEndereco.PessoaAPI.Repository
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<PessoaVO>> FindAll()
+        public async Task<IEnumerable<PessoaVO>?> FindAll()
         {
-            List<Pessoa> pessoas = await _context.Pessoas.Include(x => x.Endereco).ToListAsync();
+            if (_context.Pessoas != null)
+            {
+                List<Pessoa> pessoas = await _context.Pessoas.Include(x => x.Endereco).ToListAsync();
 
-            return _mapper.Map<List<PessoaVO>>(pessoas);
+                return _mapper.Map<List<PessoaVO>>(pessoas);
+            }
+
+            return null;
         }
 
-        public async Task<PessoaVO> FindById(Guid id)
+        public async Task<PessoaVO?> FindById(Guid? id)
         {
-            Pessoa pessoa = await _context.Pessoas
-                                    .Include(x => x.Endereco)
-                                    .Where(p => p.PessoaId == id)
-                                    .FirstOrDefaultAsync();
+            if (_context.Pessoas != null)
+            {
+                Pessoa pessoa = await _context.Pessoas
+                    .Include(x => x.Endereco)
+                    .Where(p => p.PessoaId == id)
+                    .FirstOrDefaultAsync();
 
-            return _mapper.Map<PessoaVO>(pessoa);        
+                return _mapper.Map<PessoaVO>(pessoa);
+            }
+
+            return null;
         }
 
  

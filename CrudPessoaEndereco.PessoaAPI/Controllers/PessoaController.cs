@@ -29,7 +29,7 @@ namespace CrudPessoaEndereco.PessoaAPI.Controllers
         /// <response code="200">Retorna o usuário criado</response>>
         /// <response code="400">BadRequest, erro na requisição</response>>
         [HttpPost]
-        public async Task<ActionResult<PessoaVO>> Create([FromBody] CreatePessoaVO vo)
+        public async Task<ActionResult<PessoaVO>> Create([FromBody] CreatePessoaVO? vo)
         {
             if (vo == null) return BadRequest();
             var pessoa = await _repository.Create(vo);
@@ -66,11 +66,11 @@ namespace CrudPessoaEndereco.PessoaAPI.Controllers
         /// </returns>
         /// <response code="200">Retorna o usuário do banco</response>>
         /// <response code="404">NotFound, usuário não encontrado</response>>
-        [HttpGet("{id}")]
-        public async Task<ActionResult<PessoaVO>> FindById(Guid id)
+        [HttpGet("{id:guid}")]
+        public async Task<ActionResult<PessoaVO>> FindById(Guid? id)
         {
             var pessoa = await _repository.FindById(id);
-            if (pessoa == null) return NotFound();
+            if (pessoa.Equals(null)) return NotFound();
             return Ok(pessoa);
         }
     }
