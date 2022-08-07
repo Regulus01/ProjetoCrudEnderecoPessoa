@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CrudPessoaEndereco.PessoaAPI</name>
+    </assembly>
+    <members>
+        <member name="M:CrudPessoaEndereco.PessoaAPI.Controllers.PessoaController.Create(CrudPessoaEndereco.PessoaAPI.Data.ValueObjects.CreatePessoaVO)">
+            <summary>
+                EndPoint para criar endereço
+            </summary>
+            <remarks>
+                End point que cria pessoa a partir dos dados passados no value object
+            </remarks>>
+            <param name="vo"></param>
+            <returns>
+                Retorna a pessoa criada 
+            </returns>
+            <response code="200">Retorna o usuário criado</response>>
+            <response code="400">BadRequest, erro na requisição</response>>
+        </member>
+        <member name="M:CrudPessoaEndereco.PessoaAPI.Controllers.PessoaController.FindAll">
+            <summary>
+                EndPoint filtrar todas as pessoas
+            </summary>
+            <remarks>
+                EndPoint para filtrar todas as pessoas cadastradas no banco de dados
+            </remarks>>
+            <returns>
+                Retorna todas as pessoas do banco
+            </returns>
+            <response code="200">Retorna os usuários</response>>
+        </member>
+        <member name="M:CrudPessoaEndereco.PessoaAPI.Controllers.PessoaController.FindById(System.Nullable{System.Guid})">
+            <summary>
+                EndPoint para filtrar uma pessoa pelo id
+            </summary>
+            <remarks>
+                End point que retorna uma pessoa pelo seu id (guid)
+            </remarks>>
+            <param name="id"></param>
+            <returns>
+                Retorna a pessoa com o seu id correspondente
+            </returns>
+            <response code="200">Retorna o usuário do banco</response>>
+            <response code="404">NotFound, usuário não encontrado</response>>
+        </member>
+    </members>
+</doc>

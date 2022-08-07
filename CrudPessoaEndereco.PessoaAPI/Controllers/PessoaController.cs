@@ -13,7 +13,7 @@ namespace CrudPessoaEndereco.PessoaAPI.Controllers
         public PessoaController(IPessoaRepository repository)
         {
             _repository = repository ?? throw new 
-                ArgumentException(null, nameof(repository));
+                ArgumentException(null, nameof(repository)); 
         }
 
         /// <summary>
@@ -40,10 +40,10 @@ namespace CrudPessoaEndereco.PessoaAPI.Controllers
         ///     EndPoint filtrar todas as pessoas
         /// </summary>
         /// <remarks>
-        ///     EndPoint filtrar todas as pessoas cadastradas no banco de dados
+        ///     EndPoint para filtrar todas as pessoas cadastradas no banco de dados
         /// </remarks>>
         /// <returns>
-        ///     Retorna tododas as pessoas do banco
+        ///     Retorna todas as pessoas do banco
         /// </returns>
         /// <response code="200">Retorna os usuários</response>>
         [HttpGet]

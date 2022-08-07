@@ -181,3 +181,5 @@ G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaA
 G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaAPI\obj\Debug\net6.0\CrudPessoaEndereco.PessoaAPI.pdb
 G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaAPI\obj\Debug\net6.0\CrudPessoaEndereco.PessoaAPI.genruntimeconfig.cache
 G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaAPI\obj\Debug\net6.0\ref\CrudPessoaEndereco.PessoaAPI.dll
+G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaAPI\bin\Debug\net6.0\CrudPessoaEndereco.PessoaAPI.xml
+G:\My Drive\Projeto com rod\ProjetoCrudEnderecoPessoa\CrudPessoaEndereco.PessoaAPI\obj\Debug\net6.0\CrudPessoaEndereco.PessoaAPI.xml
