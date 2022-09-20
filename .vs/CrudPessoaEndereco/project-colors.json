@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "1b05d8e0-f1e2-475d-855c-3b4190cd456f": {
+      "ProjectGuid": "1b05d8e0-f1e2-475d-855c-3b4190cd456f",
+      "DisplayName": "CrudPessoaEndereco.PessoaAPI",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
